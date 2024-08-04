@@ -5,43 +5,15 @@ function Landing() {
 	return (
 		<>
 			<div className='landing-background'>
-				<TypingName text='Mouse Study Platform' speed={70} />
-			</div>
-			<div>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque expedita
-				dolorum odio asperiores id possimus corrupti beatae! Modi neque
-				molestias numquam voluptatibus quod nobis, deleniti cum consectetur
-				tempora labore minima.
-			</div>
-			<div>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque expedita
-				dolorum odio asperiores id possimus corrupti beatae! Modi neque
-				molestias numquam voluptatibus quod nobis, deleniti cum consectetur
-				tempora labore minima.
-			</div>
-			<div>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque expedita
-				dolorum odio asperiores id possimus corrupti beatae! Modi neque
-				molestias numquam voluptatibus quod nobis, deleniti cum consectetur
-				tempora labore minima.
-			</div>
-			<div>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque expedita
-				dolorum odio asperiores id possimus corrupti beatae! Modi neque
-				molestias numquam voluptatibus quod nobis, deleniti cum consectetur
-				tempora labore minima.
-			</div>
-			<div>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque expedita
-				dolorum odio asperiores id possimus corrupti beatae! Modi neque
-				molestias numquam voluptatibus quod nobis, deleniti cum consectetur
-				tempora labore minima.
-			</div>
-			<div>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque expedita
-				dolorum odio asperiores id possimus corrupti beatae! Modi neque
-				molestias numquam voluptatibus quod nobis, deleniti cum consectetur
-				tempora labore minima.
+				<TypingName text='Mouse Study Platform' speed={70} isTitle={true} />
+				<div className='mb-8'>
+					<TypingName
+						text='Курс по Frontend разработке на React'
+						speed={38}
+						isTitle={false}
+					/>
+				</div>
+				<button className='landing-button px-20 py-3'>Перейти к курсу</button>
 			</div>
 		</>
 	)

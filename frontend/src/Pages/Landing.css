@@ -20,8 +20,8 @@
   content: "";
   position: absolute;
   top: 25%;
-  left: 50%;
-  width: 30%;
+  left: 48%;
+  width: 27%;
   height: 50%;
   background:
     radial-gradient(circle at center, var(--color-accent) 0%, rgba(129, 255, 125, 0) 45%),
@@ -53,6 +53,12 @@
 .landing-background {
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.landing-button {
+  opacity: 0;
+  animation: appear 0.5s ease-in 2s 1 forwards;
 }

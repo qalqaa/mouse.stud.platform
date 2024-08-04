@@ -16,6 +16,11 @@
     animation: expand-contract 1s ease-in-out infinite;
 }
 
+.paragraph.cursor {
+    height: 20px;
+    top: 0;
+}
+
 .dark .cursor {
     background-color: var(--color-text-dark);
 }

@@ -5,9 +5,10 @@ import './TypingName.css'
 interface ITypingTextProps {
 	text: string
 	speed: number
+	isTitle: boolean
 }
 
-const TypingText: React.FC<ITypingTextProps> = ({ text, speed }) => {
+const TypingText: React.FC<ITypingTextProps> = ({ text, speed, isTitle }) => {
 	const [displayedText, setDisplayedText] = useState('')
 	const [index, setIndex] = useState(0)
 	const [showCursor, setShowCursor] = useState(true)
@@ -28,7 +29,7 @@ const TypingText: React.FC<ITypingTextProps> = ({ text, speed }) => {
 
 	return (
 		<div className={`typing-container ${!showCursor ? 'active' : null}`}>
-			{!showCursor ? (
+			{!showCursor && isTitle ? (
 				<img
 					className={`h-20 pb-5 mr-3 inline test `}
 					src={
@@ -39,9 +40,14 @@ const TypingText: React.FC<ITypingTextProps> = ({ text, speed }) => {
 					alt=''
 				/>
 			) : null}
-
-			<h1 className='typing-text'>{displayedText}</h1>
-			{showCursor && <span className='cursor'></span>}
+			{isTitle ? (
+				<h1 className='typing-text'>{displayedText}</h1>
+			) : (
+				<p className='typing-text'>{displayedText}</p>
+			)}
+			{showCursor && (
+				<span className={`cursor ${!isTitle ? 'paragraph' : null}`}></span>
+			)}
 		</div>
 	)
 }
