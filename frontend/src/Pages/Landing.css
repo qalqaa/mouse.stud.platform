@@ -55,8 +55,6 @@
 }
 
 .tilt {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,4 +64,55 @@
 .landing-button {
   opacity: 0;
   animation: appear 0.5s ease-in 2s 1 forwards;
+  z-index: 0;
+}
+
+.track-on-window {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  position: relative;
+
+  transform-style: preserve-3d;
+
+  .inner-element {
+    transform: translateZ(100px);
+  }
+
+  .inner-element img:first-child {
+    position: absolute;
+    left: -180px;
+    top: 280px;
+    scale: 0.7;
+    transform: rotate(30deg);
+  }
+
+  .inner-element img:nth-child(2) {
+    position: absolute;
+    left: 240px;
+    top: 330px;
+    transform: rotate(-70deg) rotateY(180deg);
+  }
+
+  .inner-element img:nth-child(3) {
+    position: absolute;
+    scale: 0.4;
+    transform: rotate(70deg) rotateY(180deg);
+    left: -200px;
+    top: 70px;
+  }
+  .inner-element img:nth-child(4) {
+    position: absolute;
+    transform: rotate(90deg);
+    left: 350px;
+    top: 100px;
+  }
+  .inner-element img:nth-child(5) {
+    position: absolute;
+    left: -150px;
+    top: 100px;
+  }
 }

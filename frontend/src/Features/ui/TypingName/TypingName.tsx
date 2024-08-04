@@ -35,7 +35,7 @@ const TypingText: React.FC<ITypingTextProps> = ({ text, speed, isTitle }) => {
 		>
 			{!showCursor && isTitle ? (
 				<img
-					className={`h-12 mr-3 inline test `}
+					className={`h-12 mr-3 inline`}
 					src={
 						theme === 'light'
 							? `../../../../react-logo.svg`
