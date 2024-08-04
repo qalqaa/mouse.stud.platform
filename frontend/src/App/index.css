@@ -6,24 +6,30 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  --color-white: #ffffff;
+  --color-white-soft: #f1f2f5;
+  --color-white-mute: #ebecf0;
+
+  --color-black: #181818;
+  --color-black-soft: #222222;
+  --color-black-mute: #282828;
+
+  --color-accent-hl: #93e9ff;
+  --color-accent: #60c4dc;
+  --color-accent-soft: #3998b6;
+  --color-accent-mute: #0a5669;
+
+  --color-bg-dark: var(--color-black-mute);
+  --color-bg-light: var(--color-white);
+  --color-text-dark: var(--color-white-soft);
+  --color-text-light: var(--color-black-soft);
 }
 
 body {
@@ -32,41 +38,123 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  transition: all 0.3s ease-in-out;
+}
+
+h1,
+h2,
+a {
+  transition: color 0.3s ease-in-out;
+}
+
+h1,
+h2 {
+  font-weight: 700;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+a {
+  transition:
+    color 0.2s ease-in-out,
+    text-shadow 0.2s ease-in-out;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition:
+    color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+  padding: 10px 15px;
+  font-weight: 700;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  position: relative;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Темная тема */
+
+body.dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+body.dark h1,
+body.dark h2,
+body.dark a {
+  color: var(--color-accent);
+}
+
+body.dark a:hover {
+  color: var(--color-accent-hl);
+  text-shadow: 0 0 5px var(--color-accent);
+}
+
+body.dark button {
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+}
+
+body.dark button:hover {
+  border: 2px solid var(--color-accent-hl);
+  box-shadow: 0 0 5px var(--color-accent);
+  color: var(--color-accent-hl);
+}
+
+body.dark button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  transition: box-shadow 0.3s ease-in-out;
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
+}
+
+body.dark button:hover::before {
+  box-shadow: inset 0 0 5px var(--color-accent-hl);
+}
+
+/* Свветлая тема */
+
+body.light {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+}
+
+body.light h1,
+body.light h2,
+body.light a {
+  color: var(--color-accent-soft);
+}
+
+body.light a:hover {
+  color: var(--color-accent-mute);
+}
+
+body.light button {
+  background-color: var(--color-accent-soft);
+  color: var(--color-text-dark);
+}
+
+body.light button:hover {
+  box-shadow: 0 0 10px var(--color-accent-mute);
+  background-color: var(--color-accent-mute);
 }
