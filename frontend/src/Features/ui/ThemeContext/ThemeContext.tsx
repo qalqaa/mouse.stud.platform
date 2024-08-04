@@ -33,7 +33,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 	}
 
 	useEffect(() => {
-		document.body.className = theme
+		document.documentElement.className = theme
 	}, [theme])
 
 	return (

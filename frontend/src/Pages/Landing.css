@@ -1,8 +1,50 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
   padding: 2rem;
   text-align: center;
+}
+
+#root::after {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  background:
+    radial-gradient(circle at center, var(--color-accent) 0%, rgba(129, 255, 125, 0) 45%),
+    url("../../../../React-icon.svg") no-repeat center center;
+  z-index: -1;
+  animation: rotate 60s linear infinite;
+}
+
+.dark #root::after {
+  filter: blur(10px) brightness(50%);
+}
+
+.light #root::after {
+  filter: blur(10px) opacity(70%);
+}
+
+@keyframes rotate {
+  0% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 180deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+.landing-background {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
