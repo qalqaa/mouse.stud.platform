@@ -36,3 +36,13 @@ body.light .cursor {
         transform: scaleY(0);
     }
 }
+
+.active {
+    display: block;
+    transition: all 0.5s ease;
+    transform: scale(2);
+}
+
+.test {
+    transition: all 2s ease;
+}

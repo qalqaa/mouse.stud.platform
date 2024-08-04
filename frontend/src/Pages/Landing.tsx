@@ -1,11 +1,11 @@
-import TypingText from '../Features/ui/TypingText/TypingText'
+import TypingName from '../Features/ui/TypingName/TypingName'
 import './Landing.css'
 
 function Landing() {
 	return (
 		<>
 			<div>
-				<TypingText text='Mouse Study Platform' speed={80} />
+				<TypingName text='Mouse Study Platform' speed={70} />
 			</div>
 		</>
 	)
