@@ -28,10 +28,14 @@ const TypingText: React.FC<ITypingTextProps> = ({ text, speed, isTitle }) => {
 	}, [index, text, displayedText, speed])
 
 	return (
-		<div className={`typing-container ${!showCursor ? 'active' : null}`}>
+		<div
+			className={`typing-container flex items-center ${
+				!showCursor ? 'active' : null
+			}`}
+		>
 			{!showCursor && isTitle ? (
 				<img
-					className={`h-20 pb-5 mr-3 inline test `}
+					className={`h-12 mr-3 inline test `}
 					src={
 						theme === 'light'
 							? `../../../../react-logo.svg`
