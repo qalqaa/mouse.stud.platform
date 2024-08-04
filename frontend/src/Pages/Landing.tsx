@@ -3,7 +3,7 @@ import './Landing.css'
 function Landing() {
 	return (
 		<>
-			<div>Landing works!</div>
+			<div className='text-3xl font-serif'>Landing works!</div>
 		</>
 	)
 }
