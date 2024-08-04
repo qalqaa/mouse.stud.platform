@@ -44,5 +44,16 @@
 }
 
 .test {
-    transition: all 2s ease;
+    animation: appearing 0.5s ease-in;
+}
+
+@keyframes appearing {
+    0% {
+        opacity: 0;
+        transform: translate(30px) rotate(50deg);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
