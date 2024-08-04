@@ -1,16 +1,12 @@
+import TypingText from '../Features/ui/TypingText/TypingText'
 import './Landing.css'
 
 function Landing() {
 	return (
 		<>
-			<div>Landing Works!</div>
-			<p>Paragraph</p>
-			<h1>TITLE1</h1>
-			<h2>TITLE2</h2>
-			<h3>TITLE3</h3>
-			<h4>TITLE4</h4>
-			<a href='#'>LINK</a>
-			<button>BUTTON</button>
+			<div>
+				<TypingText text='Mouse Study Platform' speed={80} />
+			</div>
 		</>
 	)
 }
