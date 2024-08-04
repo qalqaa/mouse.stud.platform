@@ -17,9 +17,9 @@
   --color-white-soft: #f1f2f5;
   --color-white-mute: #ebecf0;
 
-  --color-black: #181818;
-  --color-black-soft: #222222;
-  --color-black-mute: #282828;
+  --color-black: #1a1d23;
+  --color-black-soft: #23272f;
+  --color-black-mute: #333a45;
 
   --color-gray: #555;
   --color-gray-soft: #999;
@@ -30,7 +30,7 @@
   --color-accent-soft: #3998b6;
   --color-accent-mute: #0a5669;
 
-  --color-bg-dark: var(--color-black-mute);
+  --color-bg-dark: var(--color-black-soft);
   --color-bg-light: var(--color-white);
   --color-text-dark: var(--color-white-soft);
   --color-text-light: var(--color-black-soft);
