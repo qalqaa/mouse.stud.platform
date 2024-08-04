@@ -1,5 +1,6 @@
 .typing-container {
     display: inline-block;
+    position: relative;
 }
 
 .typing-text {
@@ -7,9 +8,11 @@
 }
 
 .cursor {
-    display: inline-block;
-    width: 2px;
+    position: absolute;
+    width: 3px;
     height: 40px;
+    border-radius: 3px;
+    top: 10px;
     animation: expand-contract 1s ease-in-out infinite;
 }
 
