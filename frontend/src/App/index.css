@@ -36,6 +36,10 @@
   --color-text-light: var(--color-black-soft);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   display: flex;

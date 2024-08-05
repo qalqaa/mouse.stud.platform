@@ -79,6 +79,7 @@
   transform-style: preserve-3d;
 
   .inner-element {
+    animation: appear 3s ease-in-out;
     transform: translateZ(100px);
   }
 

@@ -13,6 +13,7 @@
     height: 40px;
     border-radius: 3px;
     top: 10px;
+    right: 0;
     animation: expand-contract 1s ease-in-out infinite;
 }
 
@@ -48,7 +49,7 @@
     transform: scale(2);
 }
 
-.test {
+.logo-animation {
     animation: appearing 0.5s ease-in;
 }
 

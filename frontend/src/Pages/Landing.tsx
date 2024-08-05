@@ -8,12 +8,12 @@ function Landing() {
 			<div className='overflow-hidden w-100 landing-background relative'>
 				<Tilt
 					className='flex flex-col gap-5 background-stripes track-on-window'
-					tiltMaxAngleX={20}
-					tiltMaxAngleY={20}
+					tiltMaxAngleX={10}
+					tiltMaxAngleY={10}
 					glareEnable={false}
 					glareMaxOpacity={0}
 					scale={1}
-					transitionSpeed={1000}
+					transitionSpeed={200}
 					gyroscope={true}
 					trackOnWindow={true}
 				>
@@ -33,8 +33,27 @@ function Landing() {
 						isTitle={false}
 					/>
 
-					<button className='landing-button px-20 py-3'>Перейти к курсу</button>
+					<a href='#section-2'>
+						<button className='landing-button px-20 py-3'>
+							Перейти к курсу
+						</button>
+					</a>
 				</Tilt>
+			</div>
+			<div
+				id='section-2'
+				className='w-100 landing-background flex items-center'
+			>
+				<div className='left w-1/2 text-left ml-28'>
+					<h2>О курсе</h2>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						Perspiciatis id, modi tempore ea nam enim recusandae voluptatum amet
+						officia architecto soluta nobis quod ipsam minima laudantium quaerat
+						incidunt in molestiae.
+					</p>
+				</div>
+				<div className='right w-1/2 justify-middle'></div>
 			</div>
 		</>
 	)
