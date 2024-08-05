@@ -16,7 +16,17 @@ function Landing() {
 	return (
 		<>
 			<Parallax ref={parallax} pages={2}>
-				<div className='overflow-hidden w-100 landing-background relative'>
+				<ParallaxLayer offset={2} speed={1} />
+				<ParallaxLayer
+					offset={0}
+					speed={0}
+					factor={2}
+					style={{
+						backgroundImage: url('stars', true),
+						backgroundSize: 'cover',
+					}}
+				/>
+				<ParallaxLayer offset={0} speed={1}>
 					<Tilt
 						className='flex flex-col gap-5 background-stripes track-on-window'
 						tiltMaxAngleX={10}
@@ -44,38 +54,31 @@ function Landing() {
 							isTitle={false}
 						/>
 
-						<a href='#section-2'>
-							<button className='landing-button px-20 py-3'>
-								Перейти к курсу
-							</button>
-						</a>
+						<button
+							onClick={() => parallax.current.scrollTo(1)}
+							className='landing-button px-20 py-3'
+						>
+							О чем будет этот курс
+						</button>
 					</Tilt>
-				</div>
-				<div
-					id='section-2'
-					className='w-100 flex items-center section-background'
-				>
-					<ParallaxLayer
-						offset={0}
-						speed={0}
-						style={{
-							backgroundImage: url('stars', true),
-							backgroundSize: 'cover',
-						}}
-					/>
-					<img src='../../Commet.svg' alt='' />
+				</ParallaxLayer>
+				<ParallaxLayer offset={1.3} speed={1}>
+					<div className='flex justify-center items-center gap-10 px-28'>
+						<div className='left flex flex-col gap-5 w-1/3 text-left items-start'>
+							<h2>Об этом курсе</h2>
+							<p>
+								Добро пожаловать на курс по React от Mouse Study Platform! Этот
+								курс разработан для всех, кто хочет освоить один из самых
+								популярных и востребованных Frontend фреймворков. В этом курсе
+								будет показано как создавать красивые и функциональные сайты с
+								помощью React!
+							</p>
+							<button className='z-10 px-20 py-3'>О чем будет этот курс</button>
+						</div>
 
-					<div className='left w-1/2 text-left ml-28'>
-						<h2>О курсе</h2>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Perspiciatis id, modi tempore ea nam enim recusandae voluptatum
-							amet officia architecto soluta nobis quod ipsam minima laudantium
-							quaerat incidunt in molestiae.
-						</p>
+						<img src={url('bash')} className='w-1/3 bash' />
 					</div>
-					<div className='right w-1/2 justify-middle'></div>
-				</div>
+				</ParallaxLayer>
 			</Parallax>
 		</>
 	)

@@ -121,3 +121,7 @@
 .section-background {
   height: 100vh;
 }
+
+.bash {
+  filter: hue-rotate(220deg);
+}
