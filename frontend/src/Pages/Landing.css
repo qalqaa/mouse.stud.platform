@@ -2,7 +2,6 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  padding: 2rem;
   text-align: center;
   animation: appear 0.5s ease-in-out;
   overflow: hidden;
@@ -124,4 +123,22 @@
 
 .bash {
   filter: hue-rotate(220deg);
+}
+
+.dark .bg-section-3 {
+  background: linear-gradient(#23272f00 0%, #29454e 10%, #60c4dc 100%);
+}
+
+.light .bg-section-3 {
+  background: linear-gradient(#ffffff00 0%, #ffffff 5%, #60c4dc 50%);
+}
+
+.comet {
+  background: 30% 50% url("../../Commet-back.svg");
+  rotate: 90deg;
+}
+
+.comet-1 {
+  background: 30% 50% url("../../Commet-back.svg");
+  rotate: -90deg;
 }

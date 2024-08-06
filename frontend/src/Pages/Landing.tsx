@@ -15,18 +15,35 @@ function Landing() {
 
 	return (
 		<>
-			<Parallax ref={parallax} pages={2}>
-				<ParallaxLayer offset={2} speed={1} />
+			<Parallax ref={parallax} pages={3}>
 				<ParallaxLayer
 					offset={0}
 					speed={0}
-					factor={2}
+					factor={3}
 					style={{
 						backgroundImage: url('stars', true),
 						backgroundSize: 'cover',
 					}}
 				/>
+				<ParallaxLayer
+					offset={2.2}
+					speed={0}
+					factor={3}
+					className='bg-section-3'
+				/>
 				<ParallaxLayer offset={0} speed={1}>
+					<ParallaxLayer
+						offset={6.5}
+						speed={-0.4}
+						style={{
+							display: 'flex',
+							alignItems: 'center',
+							justifyContent: 'center',
+							pointerEvents: 'none',
+						}}
+					>
+						<img src={url('earth')} style={{ width: '60%' }} />
+					</ParallaxLayer>
 					<Tilt
 						className='flex flex-col gap-5 background-stripes track-on-window'
 						tiltMaxAngleX={10}
@@ -62,9 +79,11 @@ function Landing() {
 						</button>
 					</Tilt>
 				</ParallaxLayer>
-				<ParallaxLayer offset={1.3} speed={1}>
-					<div className='flex justify-center items-center gap-10 px-28'>
-						<div className='left flex flex-col gap-5 w-1/3 text-left items-start'>
+				<ParallaxLayer speed={-0.3} offset={1} className='comet' />
+				<ParallaxLayer speed={-0.3} offset={1} className='comet-1' />
+				<ParallaxLayer offset={1} speed={1} className='flex'>
+					<div className='flex justify-center items-center gap-16 px-28'>
+						<div className='left flex flex-col gap-5 w-1/2 pr-12 text-left items-start'>
 							<h2>Об этом курсе</h2>
 							<p>
 								Добро пожаловать на курс по React от Mouse Study Platform! Этот
@@ -73,10 +92,31 @@ function Landing() {
 								будет показано как создавать красивые и функциональные сайты с
 								помощью React!
 							</p>
-							<button className='z-10 px-20 py-3'>О чем будет этот курс</button>
+							<button
+								onClick={() => parallax.current.scrollTo(2)}
+								className='z-10 px-20 py-3'
+							>
+								Что такое React?
+							</button>
 						</div>
 
 						<img src={url('bash')} className='w-1/3 bash' />
+					</div>
+				</ParallaxLayer>
+				<ParallaxLayer offset={2} speed={1} className='flex'>
+					<div className='flex justify-center items-center gap-10 px-28'>
+						<div className='left flex flex-col gap-5 w-1/3 text-left items-start'>
+							<h2>Что такое React?</h2>
+							<p>
+								React — это JavaScript-библиотека для построения
+								пользовательских интерфейсов, разработанная Facebook. Она
+								позволяет создавать быстрые, интерактивные и масштабируемые
+								веб-приложения с минимальным количеством кода.
+							</p>
+							<button className='z-10 px-20 py-3'>Зарегистрироваться</button>
+						</div>
+
+						<img src='../../React-icon.svg' className='w-1/3' />
 					</div>
 				</ParallaxLayer>
 			</Parallax>
