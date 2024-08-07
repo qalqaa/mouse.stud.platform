@@ -1,0 +1,15 @@
+table {
+    /* это на время, да я ленивый */
+    background-color: var(---color-bg-dark);
+    margin-left: 100px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+}
+
+table th, td {
+    padding: 8px;
+    border: var(---color);
+}
+
+tbody, thead {
+    border-radius: 30px;
+}
