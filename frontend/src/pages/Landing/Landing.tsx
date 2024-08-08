@@ -1,5 +1,5 @@
 import { IParallax, Parallax, ParallaxLayer } from '@react-spring/parallax'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import Tilt from 'react-parallax-tilt'
 import { useNavigate } from 'react-router-dom'
 import TypingName from '../../features/ui/TypingName/TypingName'
@@ -8,13 +8,34 @@ import './Landing.css'
 const Landing: React.FC = () => {
 	const parallax = useRef<IParallax>(null!)
 	const url = (name: string, wrap = false) =>
-		`${
-			wrap ? 'url(' : ''
-		}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${
-			wrap ? ')' : ''
+		`${wrap ? 'url(' : ''
+		}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ')' : ''
 		}`
 
 	const navigate = useNavigate()
+
+	useEffect(() => {
+		const href = location.href
+		const origin = location.origin
+		const params = href
+			.slice(origin.length + 2, undefined)
+			.split('&')
+			.reduce((prev, cur) => {
+				const [name, value] = cur.split('=')
+				prev[name] = value
+				return prev
+			}, {})
+		console.log(params);
+		const res = fetch(`http://localhost:8000/api/auth/o/github/?code=${params.code}&state=${params.state}`,
+			{
+				'method': 'POST',
+			}
+		).then(
+			res => res.json()
+		).then(data => console.log(data))
+
+	}, [])
+
 
 	return (
 		<>
