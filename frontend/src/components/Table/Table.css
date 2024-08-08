@@ -1,15 +1,70 @@
 table {
-    /* это на время, да я ленивый */
-    background-color: var(---color-bg-dark);
     margin-left: 100px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
-}
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 10px;
+    overflow: hidden; 
+  }
 
-table th, td {
-    padding: 8px;
-    border: var(---color);
-}
+  td {
+    background-color: var(--color-gray);
+    padding: 12px;
+  }
 
-tbody, thead {
-    border-radius: 30px;
-}
+  thead th {
+    position: relative;
+    background-color: var(--color-gray-mute);
+  }
+
+  thead th::after {
+    content: '';
+    position: absolute;
+    top: 25%;
+    bottom: 25%;
+    right: 0;
+    width: 1px;
+  }
+
+  .dark thead th::after {
+    background-color: var(--color-accent);
+  }
+
+  .light thead th::after {
+    background-color: var(--color-accent-soft);
+  }
+
+  thead th:last-child::after {
+    display: none;
+  }
+
+  tbody tr {
+    border-top: 1px solid var(--color-accent);
+  }
+
+  .light td, th {
+    background-color: var(--color-white-mute);
+  }
+
+  .light th {
+    background-color: var(--color-gray-mute); 
+  }
+
+  .dark th  {
+    background-color: var(--color-black-mute);
+  }
+
+  .dark tbody tr:hover {
+    filter: brightness(110%);
+    transition: 0.3s;
+  }
+
+  .light tbody tr:hover {
+    filter: brightness(93%);
+    transition: 0.3s;
+  }
+
+  th {
+    padding-top: 16px;
+    padding-left: 13px;
+    padding-bottom: 12px;
+    padding-right: 13px;
+  }
