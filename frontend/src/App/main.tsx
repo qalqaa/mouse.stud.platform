@@ -1,4 +1,3 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
@@ -12,18 +11,16 @@ import NotFound from '../pages/NotFound/NotFound.tsx'
 import ThemeButton from '../widgets/ui/ThemeButton.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-	<React.StrictMode>
-		<ThemeProvider>
-			<Provider store={store}>
-				<Router>
-					<ThemeButton />
-					<Routes>
-						<Route path='/landing' element={<Landing />} />
-						<Route path='/' element={<Home />} />
-						<Route path='*' element={<NotFound />} />
-					</Routes>
-				</Router>
-			</Provider>
-		</ThemeProvider>
-	</React.StrictMode>
+	<ThemeProvider>
+		<Provider store={store}>
+			<Router>
+				<ThemeButton />
+				<Routes>
+					<Route path='/landing' element={<Landing />} />
+					<Route path='/' element={<Home />} />
+					<Route path='*' element={<NotFound />} />
+				</Routes>
+			</Router>
+		</Provider>
+	</ThemeProvider>
 )
