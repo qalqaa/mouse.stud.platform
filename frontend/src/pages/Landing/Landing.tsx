@@ -117,7 +117,7 @@ const Landing: React.FC = () => {
 								веб-приложения с минимальным количеством кода.
 							</p>
 							<button
-								onClick={() => navigate('/home-page')}
+								onClick={() => navigate('/auth-page')}
 								className='z-10 px-20 py-3'
 							>
 								Зарегистрироваться
