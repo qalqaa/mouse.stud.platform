@@ -141,7 +141,7 @@ SIMPLE_JWT = {
 }
 
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.github.GithubOAuth2',
+    'application.social.InsecureGithubOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
 
