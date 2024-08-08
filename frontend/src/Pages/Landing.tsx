@@ -1,7 +1,7 @@
 import { IParallax, Parallax, ParallaxLayer } from '@react-spring/parallax'
 import { useRef } from 'react'
 import Tilt from 'react-parallax-tilt'
-import TypingName from '../Features/ui/TypingName/TypingName'
+import TypingName from '../features/ui/TypingName/TypingName'
 import './Landing.css'
 
 function Landing() {

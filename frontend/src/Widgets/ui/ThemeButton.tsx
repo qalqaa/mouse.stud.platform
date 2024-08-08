@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTheme } from '../../Features/ui/ThemeContext/ThemeContext'
+import { useTheme } from '../../features/ui/ThemeContext/ThemeContext'
 
 const ThemeButton: React.FC = () => {
 	const { theme, toggleTheme } = useTheme()

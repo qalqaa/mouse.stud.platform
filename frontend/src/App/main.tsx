@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { ThemeProvider } from '../Features/ui/ThemeContext/ThemeContext.tsx'
-import Landing from '../Pages/Landing.tsx'
-import ThemeButton from '../Widgets/ui/ThemeButton.tsx'
+import { ThemeProvider } from '../features/ui/ThemeContext/ThemeContext.tsx'
+import Landing from '../pages/Landing.tsx'
+import ThemeButton from '../widgets/ui/ThemeButton.tsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
