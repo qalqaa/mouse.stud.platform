@@ -68,3 +68,59 @@ table {
     padding-bottom: 12px;
     padding-right: 13px;
   }
+
+  .table__counter__list {
+    display: flex;
+    margin-top: 10px;
+    gap: 5px;
+  }
+
+  .table__counter__item {
+    border-radius: 10px;
+  }
+
+  .table__counter__item a {
+    padding: 24px;
+    border-radius: 10px;
+  }
+
+  .dark .table__counter__item {
+    filter: brightness(110%);
+    transition: 0.3s;
+    
+  }
+
+  .light .table__counter__item {
+    filter: brightness(93%);
+    transition: 0.3s;
+  }
+
+  .dark .table__counter__item:hover {
+    filter: brightness(110%);
+    transition: 0.3s;
+    background-color: var(--color-gray);
+  }
+
+  .light .table__counter__item:hover {
+    filter: brightness(110%);
+    transition: 0.3s;
+    background-color: var(--color-gray-mute);
+  }
+
+  .table__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .light .table__counter__item.active {
+    filter: brightness(93%);
+    border: 1px solid var(--color-accent);
+    background-color: var(--color-gray-mute);
+  }
+
+  .dark .table__counter__item.active {
+    filter: brightness(110%);
+    border: 1px solid var(--color-accent-soft);
+    background-color: var(--color-gray);
+  }

@@ -1,16 +1,19 @@
 import './Table.css';
 import '../../App/index.css';
-import { useState } from 'react';
+import React from 'react';
 
 interface TableProps {
   columns: string[];
   data: Record<string, string | number | null>[];
+  currentPage: number;
+  dataPerPage: number;
 }
 
+const Table: React.FC<TableProps> = ({ columns, data, currentPage, dataPerPage }) => {
+  const lastDataIndex = currentPage * dataPerPage;
+  const firstDataIndex = lastDataIndex - dataPerPage;
+  const currentData = data.slice(firstDataIndex, lastDataIndex);
 
-const Table: React.FC<TableProps> = ({ columns, data }) => {
-  const [loading, setLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
   return (
     <table>
       <thead>
@@ -21,7 +24,7 @@ const Table: React.FC<TableProps> = ({ columns, data }) => {
         </tr>
       </thead>
       <tbody>
-        {data.map((row, rowIndex) => (
+        {currentData.map((row, rowIndex) => (
           <tr key={rowIndex}>
             {columns.map((column, colIndex) => (
               <td key={colIndex}>{row[column]}</td>
