@@ -1,19 +1,28 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import { store } from '../app/store/store.ts'
 import { ThemeProvider } from '../features/ui/ThemeContext/ThemeContext.tsx'
 import './index.css'
 
-import Landing from '../pages/Landing.tsx'
+import Home from '../pages/Home/Home.tsx'
+import Landing from '../pages/Landing/Landing.tsx'
+import NotFound from '../pages/NotFound/NotFound.tsx'
 import ThemeButton from '../widgets/ui/ThemeButton.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
 		<ThemeProvider>
 			<Provider store={store}>
-				<ThemeButton />
-				<Landing />
+				<Router>
+					<ThemeButton />
+					<Routes>
+						<Route path='/' element={<Landing />} />
+						<Route path='/home-page' element={<Home />} />
+						<Route path='*' element={<NotFound />} />
+					</Routes>
+				</Router>
 			</Provider>
 		</ThemeProvider>
 	</React.StrictMode>

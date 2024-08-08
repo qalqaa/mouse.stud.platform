@@ -1,10 +1,11 @@
 import { IParallax, Parallax, ParallaxLayer } from '@react-spring/parallax'
 import { useRef } from 'react'
 import Tilt from 'react-parallax-tilt'
-import TypingName from '../features/ui/TypingName/TypingName'
+import { useNavigate } from 'react-router-dom'
+import TypingName from '../../features/ui/TypingName/TypingName'
 import './Landing.css'
 
-function Landing() {
+const Landing: React.FC = () => {
 	const parallax = useRef<IParallax>(null!)
 	const url = (name: string, wrap = false) =>
 		`${
@@ -12,6 +13,8 @@ function Landing() {
 		}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${
 			wrap ? ')' : ''
 		}`
+
+	const navigate = useNavigate()
 
 	return (
 		<>
@@ -113,7 +116,12 @@ function Landing() {
 								позволяет создавать быстрые, интерактивные и масштабируемые
 								веб-приложения с минимальным количеством кода.
 							</p>
-							<button className='z-10 px-20 py-3'>Зарегистрироваться</button>
+							<button
+								onClick={() => navigate('/home-page')}
+								className='z-10 px-20 py-3'
+							>
+								Зарегистрироваться
+							</button>
 						</div>
 
 						<img src='../../React-icon.svg' className='w-1/3' />
