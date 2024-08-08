@@ -18,8 +18,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 				<Router>
 					<ThemeButton />
 					<Routes>
-						<Route path='/' element={<Landing />} />
-						<Route path='/home-page' element={<Home />} />
+						<Route path='/landing' element={<Landing />} />
+						<Route path='/' element={<Home />} />
 						<Route path='*' element={<NotFound />} />
 					</Routes>
 				</Router>
