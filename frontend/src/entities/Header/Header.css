@@ -2,6 +2,19 @@
     width: 10%;
 }
 
+p {
+    font-size: 13px;
+}
+
+a:hover svg {
+    fill: var(--color-accent-hl);
+}
+
+svg {
+    transition: fill 0.2s ease-in-out;
+    fill: #60c4dc;
+}
+
 .dark .header-container {
     background-color: var(--color-black);
 }

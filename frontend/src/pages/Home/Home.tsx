@@ -41,7 +41,7 @@ const Home: React.FC = () => {
 			<Header theme={theme} />
 			<div className='w-full h-screen'>
 				{state ? (
-					<div>Auth complete</div>
+					<div></div>
 				) : (
 					<div className='ifNotAuthorized flex flex-col gap-5 h-screen justify-center items-center'>
 						<h3>
