@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { Outlet, useSearchParams } from 'react-router-dom'
 import { getUser, githubAuthenticate } from '../../app/store/authActions'
 import { useAppDispatch, useAppSelector } from '../../app/store/store'
 import Header from '../../entities/Header/Header'
@@ -41,7 +41,7 @@ const Home: React.FC = () => {
 			<Header theme={theme} />
 			<div className='w-full h-screen'>
 				{state ? (
-					<div></div>
+					<Outlet />
 				) : (
 					<div className='ifNotAuthorized flex flex-col gap-5 h-screen justify-center items-center'>
 						<h3>

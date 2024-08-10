@@ -17,9 +17,10 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 			<Router>
 				<ThemeButton />
 				<Routes>
+					<Route path='/' element={<Home />}>
+						<Route path='profile' element={<Profile />} />
+					</Route>
 					<Route path='/landing' element={<Landing />} />
-					<Route path='/' element={<Home />} />
-					<Route path='/profile' element={<Profile />} />
 					<Route path='*' element={<NotFound />} />
 				</Routes>
 			</Router>
