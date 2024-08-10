@@ -2,11 +2,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 
 export const githubAuthenticate = createAsyncThunk(
 	'users/githubAuth',
-	async ({ code, state }: { state: string; code: string }, thunkAPI) => {
+	async ({ code }: { code: string }, thunkAPI) => {
 		if (code && !localStorage.getItem('token')) {
 			try {
 				const res = await fetch(
-					`localhost:8000/api/auth/o/github/?code=${code}&state=${state}`,
+					`http://localhost:8000/api/auth/o/github/?code=${code}`,
 					{
 						method: 'POST',
 					}
@@ -35,7 +35,7 @@ export const getUser = createAsyncThunk(
 	'users/me',
 	async (access: string, thunkAPI) => {
 		try {
-			const res = await fetch(`localhost:8000/api/auth/users/me/`, {
+			const res = await fetch(`http://localhost:8000/api/auth/users/me/`, {
 				method: 'GET',
 				headers: {
 					Accept: 'application/json',

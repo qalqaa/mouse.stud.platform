@@ -1,16 +1,14 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
-import { githubAuthenticate } from '../../app/store/authActions'
-import { useAppDispatch } from '../../app/store/store'
+import React, { useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
+import { getUser, githubAuthenticate } from '../../app/store/authActions'
+import { useAppDispatch, useAppSelector } from '../../app/store/store'
 import Header from '../../entities/Header/Header'
 import { useTheme } from '../../features/ui/ThemeContext/ThemeContext'
 import './Home.css'
 
 const Home: React.FC = () => {
 	const { theme } = useTheme()
-	const navigate = useNavigate()
-	const [isAuth] = useState(false)
 
 	const gitHubHandler = async () => {
 		const { data } = await axios.get(
@@ -20,26 +18,29 @@ const Home: React.FC = () => {
 	}
 
 	const dispatch = useAppDispatch()
-	const [queryParams, setQueryParams] = useSearchParams()
+	const [queryParams] = useSearchParams()
+	const state = useAppSelector(state => state.auth.userData)
 
 	useEffect(() => {
 		const code = queryParams.get('code')
-		const state = queryParams.get('state')
-		if (code && state) {
+		const access = localStorage.getItem('token')
+		if (code) {
 			dispatch(
 				githubAuthenticate({
 					code,
-					state,
 				})
 			)
 		}
+		if (access) {
+			dispatch(getUser(access))
+		}
 		return () => {}
-	})
+	}, [location.href])
 	return (
 		<div className='homepage-container flex'>
 			<Header theme={theme} />
 			<div className='w-full h-screen'>
-				{isAuth ? (
+				{state ? (
 					<div></div>
 				) : (
 					<div className='ifNotAuthorized flex flex-col gap-5 h-screen justify-center items-center'>
