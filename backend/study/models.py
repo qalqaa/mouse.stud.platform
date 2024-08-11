@@ -6,9 +6,7 @@ class UserAccountManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         if not email:
             raise ValueError('Email required!')
-        
         email = self.normalize_email(email)
-        name = email.split('@')[0]
         user = self.model(email=email,  **extra_fields)
         user.is_active = True
         user.set_password(password)
@@ -31,21 +29,30 @@ class UserAccountManager(BaseUserManager):
 class UserAccount(AbstractBaseUser, PermissionsMixin):
     objects = UserAccountManager()
     email = models.EmailField(max_length=100, unique=True)
+    username = models.CharField(verbose_name='Никнейм', unique=True, max_length=128)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     USERNAME_FIELD = 'email'
+    
+    
+    def is_mentor(self):
+        try:
+            if self.mentor_profile:
+                return True
+        except:
+            pass
+        return False
+    
+    def is_student(self):
+        try:
+            if self.student_profile:
+                return True
+        except:
+            pass
+        return False
 
     def __str__(self):
-        return self.email
-
-
-class MentorProfile(models.Model):
-    user = models.OneToOneField(
-        UserAccount,
-        on_delete=models.CASCADE,
-        verbose_name='Пользователь',
-        related_name='mentor_profile'
-    )
+        return self.username
 
 
 class MentorProfile(models.Model):
@@ -68,6 +75,9 @@ class StudentProfile(models.Model):
     
 class Course(models.Model):
     name = models.CharField(max_length=128 ,unique=True)
+    
+    def __str__(self) -> str:
+        return self.name
 
 
 class Task(models.Model):
@@ -96,6 +106,9 @@ class Task(models.Model):
         verbose_name='Курс'
     )
     
+    def __str__(self) -> str:
+        return self.title
+
 
 class Assignment(models.Model):
     task = models.ForeignKey(
@@ -121,3 +134,6 @@ class Assignment(models.Model):
         null=True,
         blank=True
     )
+    
+    def __str__(self) -> str:
+        return f'{self.task} {self.student}'
