@@ -18,7 +18,7 @@ const Home: React.FC = () => {
 	}
 
 	const dispatch = useAppDispatch()
-	const [queryParams, setQeryParams] = useSearchParams()
+	const [queryParams, setQueryParams] = useSearchParams()
 	const state = useAppSelector(state => state.auth.userData)
 
 	useEffect(() => {
@@ -34,7 +34,7 @@ const Home: React.FC = () => {
 		if (access) {
 			dispatch(getUser(access))
 		}
-		setQeryParams('')
+		setQueryParams('')
 		return () => {}
 	}, [location.href])
 	return (
