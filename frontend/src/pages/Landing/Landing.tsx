@@ -1,5 +1,5 @@
 import { IParallax, Parallax, ParallaxLayer } from '@react-spring/parallax'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Tilt from 'react-parallax-tilt'
 import { useNavigate } from 'react-router-dom'
 import TypingName from '../../features/ui/TypingName/TypingName'
@@ -16,10 +16,17 @@ const Landing: React.FC = () => {
 
 	const navigate = useNavigate()
 
+	const [fadeOut, setFadeOut] = useState(false)
+
+	const goHomeTimeout = () => {
+		setFadeOut(true)
+		setTimeout(() => navigate('/'), 500)
+	}
+
 	useEffect(() => {}, [])
 
 	return (
-		<div className='landing'>
+		<div className={`landing ${fadeOut ? 'fade-out' : ''}`}>
 			<Parallax ref={parallax} pages={3}>
 				<ParallaxLayer
 					offset={0}
@@ -118,7 +125,10 @@ const Landing: React.FC = () => {
 								позволяет создавать быстрые, интерактивные и масштабируемые
 								веб-приложения с минимальным количеством кода.
 							</p>
-							<button onClick={() => navigate('/')} className='z-10 px-20 py-3'>
+							<button
+								onClick={() => goHomeTimeout()}
+								className='z-10 px-20 py-3'
+							>
 								Зарегистрироваться
 							</button>
 						</div>

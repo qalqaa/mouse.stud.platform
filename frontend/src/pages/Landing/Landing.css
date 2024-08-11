@@ -146,3 +146,7 @@
   background: 30% 50% url("../../Commet-back.svg");
   rotate: -90deg;
 }
+
+.fade-out {
+  animation: appear 0.5s ease-in-out reverse forwards;
+}
