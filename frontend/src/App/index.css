@@ -14,14 +14,19 @@
   -moz-osx-font-smoothing: grayscale;
 
   --color-white: #ffffff;
+  --color-white-tr: #ffffffb3;
   --color-white-soft: #f1f2f5;
+  --color-white-soft-tr: #f0f1f4b3;
   --color-white-mute: #ebecf0;
+  --color-white-mute-tr: #ebecf0b3;
 
   --color-black: #1a1d23;
+  --color-black-tr: #1a1d2380;
   --color-black-soft: #23272f;
   --color-black-mute: #333a45;
 
   --color-gray: #555;
+  --color-gray-tr: #545454b3;
   --color-gray-soft: #999;
   --color-gray-mute: #b9b9b9;
 

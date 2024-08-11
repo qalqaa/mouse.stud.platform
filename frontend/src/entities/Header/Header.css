@@ -1,13 +1,10 @@
 .header-container {
     width: 10%;
+    position: relative;
 }
 
 p {
     font-size: 13px;
-}
-
-a:hover svg {
-    fill: var(--color-accent-hl);
 }
 
 svg {
@@ -15,8 +12,16 @@ svg {
     fill: #60c4dc;
 }
 
+.dark a:hover svg {
+    fill: var(--color-accent-hl);
+}
+
+.light a:hover svg {
+    fill: var(--color-accent-soft);
+}
+
 .dark .header-container {
-    background-color: var(--color-black);
+    background-color: var(--color-black-tr);
 }
 
 .light .header-container {
@@ -45,4 +50,10 @@ svg {
 
 .light a {
     color: var(--color-gray);
+}
+
+.fade-component {
+    left: 10%;
+    top: 10%;
+    position: fixed;
 }

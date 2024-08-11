@@ -8,7 +8,6 @@ import './index.css'
 import Home from '../pages/Home/Home.tsx'
 import Landing from '../pages/Landing/Landing.tsx'
 import NotFound from '../pages/NotFound/NotFound.tsx'
-import Profile from '../pages/Profile/Profile.tsx'
 import ThemeButton from '../widgets/ui/ThemeButton.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -17,9 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 			<Router>
 				<ThemeButton />
 				<Routes>
-					<Route path='/' element={<Home />}>
-						<Route path='profile' element={<Profile />} />
-					</Route>
+					<Route path='/' element={<Home />}></Route>
 					<Route path='/landing' element={<Landing />} />
 					<Route path='*' element={<NotFound />} />
 				</Routes>
