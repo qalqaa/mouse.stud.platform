@@ -19,7 +19,7 @@ const Landing: React.FC = () => {
 	useEffect(() => {}, [])
 
 	return (
-		<>
+		<div className='landing'>
 			<Parallax ref={parallax} pages={3}>
 				<ParallaxLayer
 					offset={0}
@@ -118,10 +118,7 @@ const Landing: React.FC = () => {
 								позволяет создавать быстрые, интерактивные и масштабируемые
 								веб-приложения с минимальным количеством кода.
 							</p>
-							<button
-								onClick={() => navigate('/home-page')}
-								className='z-10 px-20 py-3'
-							>
+							<button onClick={() => navigate('/')} className='z-10 px-20 py-3'>
 								Зарегистрироваться
 							</button>
 						</div>
@@ -130,7 +127,7 @@ const Landing: React.FC = () => {
 					</div>
 				</ParallaxLayer>
 			</Parallax>
-		</>
+		</div>
 	)
 }
 
