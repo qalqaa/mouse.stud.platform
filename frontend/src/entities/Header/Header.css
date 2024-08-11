@@ -51,9 +51,3 @@ svg {
 .light a {
     color: var(--color-gray);
 }
-
-.fade-component {
-    left: 10%;
-    top: 3%;
-    position: fixed;
-}

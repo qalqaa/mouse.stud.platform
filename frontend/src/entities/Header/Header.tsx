@@ -20,9 +20,7 @@ const Header: React.FC<IHeaderProps> = ({ theme }) => {
 				classNames='fade'
 				unmountOnExit
 			>
-				<div className='fade-component'>
-					<Profile />
-				</div>
+				<Profile />
 			</CSSTransition>
 			<div className='header-container'>
 				<ul className='header-list h-screen px-3 py-10 gap-10 flex flex-col items-center'>
@@ -55,7 +53,7 @@ const Header: React.FC<IHeaderProps> = ({ theme }) => {
 								>
 									<path d='M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0' />
 									<path
-										fill-rule='evenodd'
+										fillRule='evenodd'
 										d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1'
 									/>
 								</svg>
@@ -74,12 +72,12 @@ const Header: React.FC<IHeaderProps> = ({ theme }) => {
 									viewBox='0 0 16 16'
 								>
 									<path
-										fill-rule='evenodd'
+										fillRule='evenodd'
 										d='M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5zM3 3H2v1h1z'
 									/>
 									<path d='M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1z' />
 									<path
-										fill-rule='evenodd'
+										fillRule='evenodd'
 										d='M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5zM2 7h1v1H2zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm1 .5H2v1h1z'
 									/>
 								</svg>
@@ -115,7 +113,7 @@ const Header: React.FC<IHeaderProps> = ({ theme }) => {
 									viewBox='0 0 16 16'
 								>
 									<path
-										fill-rule='evenodd'
+										fillRule='evenodd'
 										d='M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5'
 									/>
 								</svg>

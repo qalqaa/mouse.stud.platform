@@ -7,6 +7,12 @@
     text-align: start;
 }
 
+.fade-component {
+    left: 10%;
+    top: 3%;
+    position: fixed;
+}
+
 .dark .card {
     background-color: var(--color-black-tr);
 }

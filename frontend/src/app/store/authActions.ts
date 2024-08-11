@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 
 export const githubAuthenticate = createAsyncThunk(
 	'users/githubAuth',
+
 	async ({ code }: { code: string }, thunkAPI) => {
 		if (code && !localStorage.getItem('token')) {
 			try {
@@ -16,6 +17,7 @@ export const githubAuthenticate = createAsyncThunk(
 					const { dispatch } = thunkAPI
 					const { access } = data
 					localStorage.setItem('token', access)
+
 					dispatch(getUser(access))
 
 					return data

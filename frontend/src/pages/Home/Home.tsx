@@ -18,7 +18,7 @@ const Home: React.FC = () => {
 	}
 
 	const dispatch = useAppDispatch()
-	const [queryParams] = useSearchParams()
+	const [queryParams, setQeryParams] = useSearchParams()
 	const state = useAppSelector(state => state.auth.userData)
 
 	useEffect(() => {
@@ -34,11 +34,12 @@ const Home: React.FC = () => {
 		if (access) {
 			dispatch(getUser(access))
 		}
+		setQeryParams('')
 		return () => {}
 	}, [location.href])
 	return (
 		<div className='homepage-container flex'>
-			<Header theme={theme} />
+			{state ? <Header theme={theme} /> : null}
 			<div className='w-full h-screen'>
 				{state ? (
 					<Outlet />
