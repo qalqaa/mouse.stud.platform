@@ -1,21 +1,13 @@
 .light .accordion_list {
-    border-color: var(--color-white-soft-tr);
-    background-color: var(--color-white);
+    background-color: var(--color-white-soft);
 }
 
 .light .accordion_title {
-    border-color: var(--color-accent-mute);
     background-color: var(--color-white);
 }
 
 .dark .accordion_list {
-    border-color: var(--color-black-mute);
-    background-color: var(--color-black);
-}
-
-
-.dark .accordion_title {
-    border-color: var(--color-black-mute);
+    background-color: var(--color-black-tr);
 }
 
 .active_title {
