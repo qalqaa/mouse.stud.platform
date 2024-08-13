@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react'
 import './Accordion.css';
 import { useState } from 'react';
 
@@ -6,7 +6,7 @@ interface AccordionProps {
   sections: { title: string | number; text: string | number | null }[];
 }
 
-export const Accordion: React.FC<AccordionProps> = ({ sections }) => {
+const Accordion: React.FC<AccordionProps> = ({ sections }) => {
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -27,3 +27,5 @@ export const Accordion: React.FC<AccordionProps> = ({ sections }) => {
     </ul>
   );
 };
+
+export default Accordion;
