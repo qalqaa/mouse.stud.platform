@@ -1,4 +1,6 @@
 from djoser import serializers as dj_serializers
+from django.db.models import Sum
+from django.db.models.functions import Lower
 from rest_framework import serializers
 
 from study import models
@@ -44,4 +46,23 @@ class DetailTaskSerializer(serializers.ModelSerializer):
             'starts',
             'ends',
             'assignments'
+        )
+
+
+class LeaderBoardSerializer(serializers.ModelSerializer):
+    rating = serializers.SerializerMethodField()
+    assignments_grades = serializers.SerializerMethodField()
+    
+    def get_rating(self, object):
+        return object.assignments.aggregate(sum=Sum('mentor_grade'))['sum']
+    
+    def get_assignments_grades(self, object):
+        return object.assignments.values('task_id', 'mentor_grade', title=Lower('task__title'))
+    
+    class Meta:
+        model = models.UserAccount
+        fields = (
+            'rating',
+            'username',
+            'assignments_grades'
         )
