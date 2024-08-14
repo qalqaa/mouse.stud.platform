@@ -6,7 +6,7 @@ const Profile: React.FC = () => {
 	const state = useAppSelector(state => state.auth.userData)
 	return (
 		<>
-			<div className='fade-component'>
+			<div className='fade-component z-10'>
 				<div className='flex flex-col items-center justify-center card'>
 					<img className='w-16' src='../../../user_photo.svg' alt='' />
 					<h3 className='title'>qalqaa</h3>
