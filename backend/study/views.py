@@ -22,6 +22,36 @@ class TaskViewSet(ReadOnlyModelViewSet):
             return serializers.TaskSerializer
         return super().get_serializer_class()
 
+    @action(methods=['POST'], detail=True)
+    def github_link(self, request, pk=None):
+        user: models.UserAccount = request.user
+        
+        if not request.user.is_student():
+            return Response(status=403)
+
+        task = self.get_object()
+        assignment = task.assignments.filter(student=user).first()
+        if not assignment:
+            return Response(status=404)
+        assignment.pr_link = request.data.get('github_link', None)
+        assignment.save()
+        return Response(status=200)
+    
+    @action(methods=['POST'], detail=True)
+    def grade(self, request, pk=None):
+        user: models.UserAccount = request.user
+        
+        if not request.user.is_mentor():
+            return Response(status=403)
+        
+        task = self.get_object()
+        assignment = task.assignments.filter(student__id=request.data.get('student_id')).first()
+        if not assignment:
+            return Response(status=404)
+        assignment.mentor_grade = request.data.get('grade', 0)
+        assignment.save()
+        return Response(status=200)
+
 
 class UsersViewSet(ViewSet):
     queryset = models.UserAccount.objects.filter(student_profile__isnull=False)
