@@ -1,0 +1,15 @@
+.light .accordion_list {
+    background-color: var(--color-white-soft);
+}
+
+.light .accordion_title {
+    background-color: var(--color-white);
+}
+
+.dark .accordion_list {
+    background-color: var(--color-black-tr);
+}
+
+.active_title {
+    color: var(--color-accent);
+}
