@@ -84,15 +84,11 @@ class Task(models.Model):
     ACTIVE = 'active'
     ARCHIVED = 'archived'
     FUTURE = 'future'
-    DONE = 'done'
-    EXPIRED = 'expired'
     
     STATUS_CHOICES = (
         (ACTIVE, ACTIVE),
         (ARCHIVED, ARCHIVED),
         (FUTURE, FUTURE),
-        (DONE, DONE),
-        (EXPIRED, EXPIRED),
     )
     
     title = models.CharField('Заголовок задания', max_length=255, unique=True)
