@@ -13,3 +13,28 @@
 .active_title {
     color: var(--color-accent);
 }
+
+.status {
+    width: 100px;
+    height: 30px;
+    padding: 0px 0px;
+    vertical-align: middle;
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.status.activeStatus {
+    color: var(--color-accent);
+    border: 2px solid var(--color-accent);
+}
+
+.status.archivedStatus {
+    color: var(--color-gray-soft-accent);
+    border: 2px solid var(--color-gray-soft-accent);
+}
+
+.status.futureStatus {
+    color: var(--color-accent-f);
+    border: 2px solid var(--color-accent-f);
+}
