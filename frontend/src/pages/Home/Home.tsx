@@ -5,6 +5,7 @@ import { getUser, githubAuthenticate } from '../../app/store/authActions'
 import { useAppDispatch, useAppSelector } from '../../app/store/store'
 import Header from '../../entities/Header/Header'
 import { useTheme } from '../../features/ui/ThemeContext/ThemeContext'
+import Loader from '../../shared/Loader/Loader'
 import './Home.css'
 
 const Home: React.FC = () => {
@@ -19,11 +20,13 @@ const Home: React.FC = () => {
 
 	const dispatch = useAppDispatch()
 	const [queryParams, setQueryParams] = useSearchParams()
-	const state = useAppSelector(state => state.auth.userData)
+	const userData = useAppSelector(state => state.auth.userData)
+	const isLoading = useAppSelector(state => state.auth.isLoading)
+
+	const code = queryParams.get('code')
+	const access = localStorage.getItem('token')
 
 	useEffect(() => {
-		const code = queryParams.get('code')
-		const access = localStorage.getItem('token')
 		if (code) {
 			dispatch(
 				githubAuthenticate({
@@ -36,12 +39,13 @@ const Home: React.FC = () => {
 		}
 		setQueryParams('')
 		return () => {}
-	}, [location.href])
+	}, [code, access])
 	return (
 		<div className='homepage-container flex'>
-			{state ? <Header theme={theme} /> : null}
+			{userData ? <Header theme={theme} /> : null}
 			<div className='w-full h-screen'>
-				{state ? (
+				{isLoading ? <Loader /> : null}
+				{userData ? (
 					<Outlet />
 				) : (
 					<div className='ifNotAuthorized flex flex-col gap-5 h-screen justify-center items-center'>

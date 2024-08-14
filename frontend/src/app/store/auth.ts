@@ -32,9 +32,6 @@ const slice = createSlice({
 			.addCase(githubAuthenticate.rejected, state => {
 				state.isLoading = false
 			})
-			.addCase(githubAuthenticate.fulfilled, state => {
-				state.isLoading = false
-			})
 			.addCase(getUser.pending, state => {
 				state.isLoading = true
 			})
