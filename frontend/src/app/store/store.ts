@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
-import reducer from './auth'
+import AuthReducer from './auth'
+import TasksReducer from './tasks'
 
 export const store = configureStore({
-	reducer: { auth: reducer },
+	reducer: { auth: AuthReducer, tasks: TasksReducer },
 	middleware: getDefaultMiddleware => getDefaultMiddleware(),
 })
 

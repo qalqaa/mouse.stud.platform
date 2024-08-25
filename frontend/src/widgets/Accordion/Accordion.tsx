@@ -103,7 +103,7 @@ const AccordionSection: React.FC<AccordionSectionProps> = ({
 			</div>
 			<div
 				ref={contentRef}
-				className='accordion-content flex flex-col gap-5'
+				className='accordion-content flex flex-col gap-5 p-1'
 				style={{
 					maxHeight: height,
 					overflow: 'hidden',

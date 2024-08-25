@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useAppDispatch, useAppSelector } from '../../app/store/store'
+import { getTask } from '../../app/store/tasksActions'
 import Accordion from '../../widgets/Accordion'
-import sections from '../../widgets/Accordion/testProps'
 
 const Tasks: React.FC = () => {
+	const dispatch = useAppDispatch()
+	const taskData = useAppSelector(state => state.tasks.taskData)
+
+	useEffect(() => {
+		dispatch(getTask())
+	}, [dispatch])
 	return (
 		<>
 			<div className='h-screen'>
-				<Accordion data={sections} />
+				{taskData && <Accordion data={taskData} />}
 			</div>
 		</>
 	)
