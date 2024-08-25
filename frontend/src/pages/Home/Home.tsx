@@ -5,7 +5,7 @@ import { getUser, githubAuthenticate } from '../../app/store/authActions'
 import { useAppDispatch, useAppSelector } from '../../app/store/store'
 import Header from '../../entities/Header/Header'
 import { useTheme } from '../../features/ui/ThemeContext/ThemeContext'
-import Loader from '../../shared/Loader/Loader'
+import Loader from '../../shared/ui/Loader/Loader'
 import './Home.css'
 
 const Home: React.FC = () => {
