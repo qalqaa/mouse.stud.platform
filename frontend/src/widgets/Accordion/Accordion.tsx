@@ -18,21 +18,16 @@ const Accordion: React.FC<AccordionProps> = ({ data }) => {
 	const [openIndex, setOpenIndex] = useState<number | null>(null)
 
 	const toggleSection = (index: number) => {
-		setOpenIndex(openIndex === index ? null : index)
+		setOpenIndex(prevIndex => (prevIndex === index ? null : index))
 	}
 
 	return (
 		<div className='px-10 py-5'>
 			<ul className='accordion_list rounded-lg py-5 px-10 text-start'>
 				{data.map(item => (
-					<li>
+					<li key={item.id}>
 						<AccordionSection
-							key={'Ass' + item.id}
-							title={item.title}
-							description={item.description}
-							status={item.status}
-							starts={item.starts}
-							ends={item.ends}
+							{...item}
 							isOpen={openIndex === item.id}
 							onClick={() => toggleSection(item.id)}
 						/>
@@ -43,19 +38,14 @@ const Accordion: React.FC<AccordionProps> = ({ data }) => {
 	)
 }
 
-interface AccordionSectionProps {
-	title: string
-	description: string
-	status: string
-	starts: string
-	ends: string
+interface AccordionSectionProps extends AccordionItem {
 	isOpen: boolean
 	onClick: () => void
 }
 
 const AccordionSection: React.FC<AccordionSectionProps> = ({
 	title,
-	description: content,
+	description,
 	status,
 	starts,
 	ends,
@@ -74,6 +64,15 @@ const AccordionSection: React.FC<AccordionSectionProps> = ({
 		}
 	}, [isOpen])
 
+	const getStatusClass = () => {
+		const statusClasses = {
+			active: 'activeStatus',
+			future: 'futureStatus',
+			archived: 'archivedStatus',
+		}
+		return `status ${statusClasses[status as keyof typeof statusClasses] || ''}`
+	}
+
 	return (
 		<div className='my-2'>
 			<div className='accordion-title' onClick={onClick}>
@@ -83,6 +82,7 @@ const AccordionSection: React.FC<AccordionSectionProps> = ({
 							isOpen ? 'rotate-90' : ''
 						}`}
 						src='../../../arrow-right.svg'
+						alt='Стрелка'
 					/>
 					<div className='flex w-full justify-between text-center items-center'>
 						<div className='flex gap-3'>
@@ -93,15 +93,7 @@ const AccordionSection: React.FC<AccordionSectionProps> = ({
 							>
 								{title}
 							</h3>
-							<p
-								className={`status ${
-									status === 'active' ? 'activeStatus' : ''
-								} ${status === 'future' ? 'futureStatus' : ''} ${
-									status === 'archived' ? 'archivedStatus' : ''
-								}`}
-							>
-								{status}
-							</p>
+							<p className={getStatusClass()}>{status}</p>
 						</div>
 						<p className='text-lg'>
 							{dateStart} — {dateEnds}
@@ -120,7 +112,7 @@ const AccordionSection: React.FC<AccordionSectionProps> = ({
 			>
 				<div className='accordion-content-inner'>
 					<h4 className='text-xl font-semibold'>Описание</h4>
-					<p className='text-lg'>{content}</p>
+					<p className='text-lg'>{description}</p>
 				</div>
 				<button className='h-12 text-lg ml-1'>Прикрепить решение</button>
 			</div>
