@@ -9,6 +9,7 @@ export interface IinitialState {
 export interface IuserData {
 	email: string
 	id: string
+	username: string
 }
 
 const initialState: IinitialState = {
