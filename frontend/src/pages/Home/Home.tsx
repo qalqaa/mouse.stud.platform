@@ -38,15 +38,21 @@ const Home: React.FC = () => {
 			dispatch(getUser(access))
 		}
 		setQueryParams('')
+		console.log(location.pathname)
 		return () => {}
 	}, [code, access])
+
 	return (
 		<div className='homepage-container flex'>
 			{userData ? <Header theme={theme} /> : null}
 			<div className='w-full h-screen'>
 				{isLoading ? <Loader /> : null}
 				{userData ? (
-					<Outlet />
+					location.pathname === '/' ?  (
+						<div className='flex flex-col gap-5 h-screen justify-center items-center'>
+							<h2>Home</h2>
+						</div>
+					) : <Outlet />
 				) : (
 					<div className='ifNotAuthorized flex flex-col gap-5 h-screen justify-center items-center'>
 						<h3>
