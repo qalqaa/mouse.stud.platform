@@ -111,6 +111,25 @@ button {
   font-size: 24px;
 }
 
+input {
+  padding: 10px 15px;
+  border-radius: 15px;
+  border: 2px solid transparent;
+  position: relative;
+  outline: none;
+  border: none;
+  background-color: var(--color-black-mute);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+input:focus {
+  box-shadow: 0px 0px 10px var(--color-accent);
+}
+
+input:hover:not(:focus) {
+  box-shadow: 0px 0px 5px var(--color-accent);
+}
+
 /* Свветлая тема */
 
 .light {
@@ -136,6 +155,18 @@ button {
 .light button:hover {
   box-shadow: 0 0 10px var(--color-accent-mute);
   background-color: var(--color-accent-mute);
+}
+
+.light input {
+  background-color: var(--color-bg-light);
+}
+
+.light input:focus {
+  box-shadow: inset 0px 0px 10px var(--color-accent-soft);
+}
+
+.light input:hover:not(:focus) {
+  box-shadow: inset 0px 0px 5px var(--color-accent-soft);
 }
 
 ::-webkit-scrollbar {
