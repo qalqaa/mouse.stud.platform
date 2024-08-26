@@ -1,0 +1,54 @@
+.light .task-submit {
+    background-color: var(--color-white-soft);
+}
+
+.dark .task-submit {
+    background-color: var(--color-black-tr);
+}
+
+.status.activeStatus {
+    color: var(--color-accent);
+    border: 2px solid var(--color-accent);
+    position: relative;
+    box-shadow: 0px 0px 5px var(--color-accent);
+    text-shadow: 0 0 3px var(--color-accent);
+}
+
+.status.activeStatus::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px var(--color-accent);
+}
+
+.status.archivedStatus {
+    color: var(--color-gray-soft-accent);
+    border: 2px solid var(--color-gray-soft-accent);
+}
+
+.status.futureStatus {
+    color: var(--color-accent-f);
+    position: relative;
+    box-shadow: 0px 0px 5px var(--color-accent-f);
+    text-shadow: 0 0 3px var(--color-accent-f);
+    border: 2px solid var(--color-accent-f);
+}
+
+.status.futureStatus::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px var(--color-accent-f);
+}
+
+.arrow-right:hover {
+    filter: brightness(1.4);
+}

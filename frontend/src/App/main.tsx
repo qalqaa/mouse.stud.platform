@@ -7,6 +7,7 @@ import { ThemeProvider } from '../features/ui/ThemeContext/ThemeContext.tsx'
 import './index.css'
 
 import { AnimatePresence, motion } from 'framer-motion'
+import TaskSubmit from '../entities/TaskSubmit/TaskSubmit.tsx'
 import Home from '../pages/Home/Home.tsx'
 import Landing from '../pages/Landing/Landing.tsx'
 import NotFound from '../pages/NotFound/NotFound.tsx'
@@ -34,7 +35,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 									</motion.div>
 								}
 							/>
+							<Route path='tasks/:id' element={<TaskSubmit />} />
 						</Route>
+						
 
 						<Route path='/landing' element={<Landing />} />
 						<Route path='*' element={<NotFound />} />
