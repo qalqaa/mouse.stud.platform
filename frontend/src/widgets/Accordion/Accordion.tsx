@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './Accordion.css'
 
-interface AccordionProps {
-	data: AccordionItem[]
+interface IAccordionProps {
+	data: IAccordionItem[]
 }
 
-interface AccordionItem {
+interface IAccordionItem {
 	id: number
 	title: string
 	description: string
@@ -14,7 +15,7 @@ interface AccordionItem {
 	ends: string
 }
 
-const Accordion: React.FC<AccordionProps> = ({ data }) => {
+const Accordion: React.FC<IAccordionProps> = ({ data }) => {
 	const [openIndex, setOpenIndex] = useState<number | null>(null)
 
 	const toggleSection = (index: number) => {
@@ -38,12 +39,13 @@ const Accordion: React.FC<AccordionProps> = ({ data }) => {
 	)
 }
 
-interface AccordionSectionProps extends AccordionItem {
+interface AccordionSectionProps extends IAccordionItem {
 	isOpen: boolean
 	onClick: () => void
 }
 
 const AccordionSection: React.FC<AccordionSectionProps> = ({
+	id,
 	title,
 	description,
 	status,
@@ -52,6 +54,7 @@ const AccordionSection: React.FC<AccordionSectionProps> = ({
 	isOpen,
 	onClick,
 }) => {
+	const navigate = useNavigate()
 	const contentRef = useRef<HTMLDivElement>(null)
 	const [height, setHeight] = useState<string>('0px')
 
@@ -85,7 +88,7 @@ const AccordionSection: React.FC<AccordionSectionProps> = ({
 						alt='Стрелка'
 					/>
 					<div className='flex w-full justify-between text-center items-center'>
-						<div className='flex gap-3'>
+						<div className='flex gap-3 items-center'>
 							<h3
 								className={`accordion_item_title font-medium ${
 									isOpen ? 'active_title' : ''
@@ -114,7 +117,12 @@ const AccordionSection: React.FC<AccordionSectionProps> = ({
 					<h4 className='text-xl font-semibold'>Описание</h4>
 					<p className='text-lg'>{description}</p>
 				</div>
-				<button className='h-12 text-lg ml-1'>Прикрепить решение</button>
+				<button
+					onClick={() => navigate(`/tasks/${id}`)}
+					className='h-12 text-lg ml-1'
+				>
+					Прикрепить решение
+				</button>
 			</div>
 		</div>
 	)
