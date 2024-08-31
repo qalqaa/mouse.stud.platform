@@ -68,8 +68,11 @@ const TaskSubmit: React.FC = () => {
 					<h4 className='text-xl font-semibold'>Описание</h4>
 					<p className='text-lg'>{task?.description}</p>
 				</div>
+				<div className='flex flex-col gap-5'>
                 <input className='w-full' type="text" placeholder='Введите ссылку на решение на гитхабе' />
-            </div>
+                <button className='w-full'>Отправить</button>
+				</div>
+			</div>
 		</div>
 	)
 }
