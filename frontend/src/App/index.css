@@ -54,7 +54,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
+  min-width: 319px;
   min-height: 100vh;
   transition: all 0.3s ease-in-out;
 }
