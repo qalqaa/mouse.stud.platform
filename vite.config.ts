@@ -4,13 +4,23 @@ import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "static",
+  root: resolve('./static/src'),
+  base: "/static/",
+  server: {
+    host: 'localhost',
+    port: 5173,
+    open: false,
+    watch: {
+      usePolling: true,
+      disableGlobbing: false,
+    },
+  },
   build: {
     manifest: "manifest.json",
-    outDir: resolve("./assets"),
+    outDir: resolve("./static/dist"),
     rollupOptions: {
       input: {
-        "<unique key>": "<path to your asset>"
+        main: resolve('./static/src/app/main.tsx')
       }
     }
   },

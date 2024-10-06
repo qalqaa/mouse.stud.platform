@@ -1,4 +1,5 @@
 from django.db.models import Avg
+from django.shortcuts import render
 from rest_framework.viewsets import ReadOnlyModelViewSet, ViewSet
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import action
@@ -69,3 +70,6 @@ class UsersViewSet(ViewSet):
         serializer = self.serializer_class(students_qs, many=True)
         
         return Response(data=serializer.data)
+
+def render_spa(request):
+    return render(request, 'index.html')

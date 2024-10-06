@@ -1,3 +1,4 @@
+{% load django_vite %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -5,9 +6,11 @@
 		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>MSP - Mouse Study Platform</title>
+		{% vite_hmr_client %}
 	</head>
 	<body>
 		<div id="root"></div>
-		<script type="module" src="/src/app/main.tsx"></script>
+		{% vite_react_refresh nonce="{{ request.csp_nonce }}" %}
+		{% vite_asset 'app/main.tsx' %}
 	</body>
 </html>

@@ -10,7 +10,7 @@ const ThemeButton: React.FC = () => {
 			onClick={toggleTheme}
 		>
 			<img
-				src={theme === 'light' ? '../../../moon.svg' : '../../../sun.svg'}
+				src={theme === 'light' ? '/static/moon.svg' : '/static/sun.svg'}
 				alt={'toggle to ' + theme + 'theme'}
 			/>
 		</button>

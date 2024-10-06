@@ -1,3 +1,4 @@
+import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
@@ -5,6 +6,7 @@ import { store } from '../app/store/store.ts'
 import { ThemeProvider } from '../features/ui/ThemeContext/ThemeContext.tsx'
 
 import './index.css'
+import 'vite/modulepreload-polyfill'
 
 import { AnimatePresence, motion } from 'framer-motion'
 import TaskSubmit from '../entities/TaskSubmit/TaskSubmit.tsx'
