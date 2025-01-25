@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useTheme } from '../../../Features/ui/ThemeContext/ThemeContext'
+import { useTheme } from '../ThemeContext/ThemeContext'
 import './TypingName.css'
 
 interface ITypingTextProps {

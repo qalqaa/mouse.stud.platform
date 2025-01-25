@@ -1,0 +1,53 @@
+.header-container {
+    width: 10%;
+    position: relative;
+}
+
+p {
+    font-size: 13px;
+}
+
+svg {
+    transition: fill 0.2s ease-in-out;
+    fill: #60c4dc;
+}
+
+.dark a:hover svg {
+    fill: var(--color-accent-hl);
+}
+
+.light a:hover svg {
+    fill: var(--color-accent-soft);
+}
+
+.dark .header-container {
+    background-color: var(--color-black-tr);
+}
+
+.light .header-container {
+    background-color: var(--color-white-soft);
+}
+
+.version {
+    font-size: 16px;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+.dark .version {
+    border: 1px solid var(--color-gray-soft);
+    color: var(--color-gray-mute);
+}
+
+.light .version {
+    border: 1px solid var(--color-gray);
+    color: var(--color-gray);
+}
+
+.dark a {
+    color: var(--color-gray-mute);
+}
+
+.light a {
+    color: var(--color-gray);
+}

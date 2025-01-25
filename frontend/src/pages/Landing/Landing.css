@@ -54,6 +54,10 @@
   height: 100vh;
 }
 
+.landing p {
+  font-size: 21px;
+}
+
 .tilt {
   display: flex;
   flex-direction: column;
@@ -141,4 +145,8 @@
 .comet-1 {
   background: 30% 50% url("../../Commet-back.svg");
   rotate: -90deg;
+}
+
+.fade-out {
+  animation: appear 0.5s ease-in-out reverse forwards;
 }

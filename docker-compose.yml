@@ -14,15 +14,3 @@ services:
     command: [
       "sh", "-c", "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     ]
-  frontend:
-    image: mouse-frontend
-    build:
-      context: .
-      dockerfile: Dockerfile.frontend
-    container_name: mouse-frontend
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
-    ports:
-      - "42069:5173"
-    command: 'npm run dev -- --host'

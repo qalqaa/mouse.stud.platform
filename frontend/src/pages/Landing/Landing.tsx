@@ -1,10 +1,11 @@
 import { IParallax, Parallax, ParallaxLayer } from '@react-spring/parallax'
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Tilt from 'react-parallax-tilt'
-import TypingName from '../Features/ui/TypingName/TypingName'
+import { useNavigate } from 'react-router-dom'
+import TypingName from '../../features/ui/TypingName/TypingName'
 import './Landing.css'
 
-function Landing() {
+const Landing: React.FC = () => {
 	const parallax = useRef<IParallax>(null!)
 	const url = (name: string, wrap = false) =>
 		`${
@@ -13,8 +14,19 @@ function Landing() {
 			wrap ? ')' : ''
 		}`
 
+	const navigate = useNavigate()
+
+	const [fadeOut, setFadeOut] = useState(false)
+
+	const goHomeTimeout = () => {
+		setFadeOut(true)
+		setTimeout(() => navigate('/'), 500)
+	}
+
+	useEffect(() => {}, [])
+
 	return (
-		<>
+		<div className={`landing ${fadeOut ? 'fade-out' : ''}`}>
 			<Parallax ref={parallax} pages={3}>
 				<ParallaxLayer
 					offset={0}
@@ -113,15 +125,21 @@ function Landing() {
 								позволяет создавать быстрые, интерактивные и масштабируемые
 								веб-приложения с минимальным количеством кода.
 							</p>
-							<button className='z-10 px-20 py-3'>Зарегистрироваться</button>
+							<button
+								onClick={() => goHomeTimeout()}
+								className='z-10 px-20 py-3'
+							>
+								Зарегистрироваться
+							</button>
 						</div>
 
 						<img src='../../React-icon.svg' className='w-1/3' />
 					</div>
 				</ParallaxLayer>
 			</Parallax>
-		</>
+		</div>
 	)
 }
 
 export default Landing
+
