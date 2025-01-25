@@ -3,7 +3,6 @@ import { Provider } from 'react-redux'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import { store } from '../app/store/store.ts'
 import { ThemeProvider } from '../features/ui/ThemeContext/ThemeContext.tsx'
-
 import './index.css'
 
 import { AnimatePresence, motion } from 'framer-motion'
